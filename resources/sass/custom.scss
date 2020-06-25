@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+html {
+    // background: #6cb2eb linear-gradient(180deg, #81bdee, #6cb2eb) repeat-x;
+    background: #6cb2eb linear-gradient(180deg, #81bdee, #3378b1) repeat-x;
+}
+
+// Position containers under navbar
+.container-reposition {
+    padding-top: 8rem;
+}
+
+
+// Welcome Page
+///////////////
+#showcase .button-showcase {
+ border: none;
+}
+
+body {
+    margin-top: none;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.navbar {
+    opacity: 0.9;
+
+    .brand-text {
+        letter-spacing: 2px;
+    }
+
+    .nav-item {
+        font-size: 1.2rem;
+        padding-right: 1rem;
+    }
+}
+
+.navbar-toggle-customize {
+    border: none;
+}
+
+.showcase-container {
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+}
+
+.register-card {
+    border: none;
+}
+
+.about-container {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#about i {
+    font-size: 2rem;
+}
+
+#features i {
+    font-size: 3rem;
+}
+
+#features .features-box {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+#features .bg-features {
+    padding-bottom: 7rem;
+
+    .section-h1-sm-screen {
+        padding-top: 3rem;
+    }
+}
+
+.features-box .icon {
+    margin-bottom: 20px;
+}
+
+.faq-container {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+#faq .card {
+    border: none;
+
+    i {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        font-size: 1.1rem;
+    }
+
+    .card-header {
+        border-bottom: none;
+
+        h5 {
+            font-size: 1.3rem;
+        }
+    }
+
+}
+
+#faq .section-h1-sm-screen {
+    margin-bottom: 2.5rem;
+}
+
+
+// Notes Index
+////////////// 
+
+.notes-index .card-body li {
+    border: none;
+}
+
+
+// Friend Notes
+///////////////
+
+#accordion .card-header i {
+    font-size: 1.3rem;
+}
+
+
+// Show Note Page
+/////////////////
+
+// Comment nesting
+.display-comment .display-comment {
+    margin-left: 40px;
+}
+
+.display-comment {
+    margin-left: 40px;
+}
+
+// Show hide replies
+// #form-wrapper {
+//     display: none;
+// }
+
+
+
+
+// Remove Card Styling
+//////////////////////
+
+.login-page .card,
+.register-page .card,
+.notes-index .card,
+.create-note .card,
+.edit-note .card,
+.email .card,
+.reset .card {
+    border: none;
+
+    .card-header {
+        border-bottom: none;
+    }
+}
+
+// Restyle Pagination Links
+///////////////////////////
+
+#bootstrap-override .active .page-link {
+    background-color: #6cb2eb;
+    border-color: #6cb2eb;
+}
+
+
+// MEDIA QUERIES //
+///////////////////
+
+// Change default container size
+@media (min-width: 1200px) {
+    .container {
+      max-width: 1400px;
+    }
+}
+
+@media(max-width: 698px) {
+    .notes-title {
+        font-size: 1.1rem;
+    }
+
+    .section-h1-sm-screen {
+        font-size: 2.7rem;
+        text-align: center;
+    }
+
+    .faq-container {
+        padding-top: 4rem;
+        padding-bottom: 5rem;
+    }
+
+    #features .bg-features {
+        padding-bottom: 5rem;
+    }
+}
