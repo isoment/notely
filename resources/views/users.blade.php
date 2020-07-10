@@ -10,7 +10,8 @@
                 <div class="card">
         
                     <div class="card-header">
-                        <h3 class="mb-0 text-center text-muted">Notely Users</h3>
+                        <h3 class="mb-0 text-center text-muted">Note Access</h3>
+                        <p class="text-muted text-center mb-0">Choose which users can view your notes</p>
                     </div>
         
                     <div class="card-body">
@@ -33,9 +34,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
         
                                     <div class="d-flex flex-column justify-content-start align-items-start">
-                                        <a href="#" class="text-decoration-none text-secondary">
-                                            <h3 class="my-1">{{$user->name}}</h3>
-                                        </a>
+                                        <h3 class="my-1">{{$user->name}}</h3>
                                         <div>
                                             Member Since <span class="font-weight-bold text-muted">
                                                 {{date("F, j, Y", strtotime($user->created_at))}}</span>
@@ -48,7 +47,7 @@
                                                 @csrf
                                                 <button type="submit" 
                                                 class= "btn btn-sm ml-2 {{auth()->user()->friending($user) ? "btn-danger" : "btn-success"}}">
-                                                        {{auth()->user()->friending($user) ? 'Unfriend' : 'Friend'}}
+                                                        {{auth()->user()->friending($user) ? 'Deny' : 'Allow'}}
                                                 </button>
                                             </form> 
                                         @endif

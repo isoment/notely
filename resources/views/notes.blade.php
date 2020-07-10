@@ -20,7 +20,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
     
                                     <div class="d-flex flex-column justify-content-start align-items-start">
-                                        <a href="/notes/{{$note->id}}/edit" class="text-decoration-none text-secondary">
+                                        <a href="/notes/{{$note->id}}/edit" class="text-decoration-none">
                                             <h3 class="my-1 notes-title">{{Str::of($note->title)->limit(35)}}</h3>
                                         </a>
                                         <span class="font-weight-bold text-muted">
@@ -58,7 +58,7 @@
                     <div class="card">
 
                         <div class="card-header d-flex justify-content-between align-items-center">
-                             <h3 class="mb-0 text-center text-muted">Your Friend's Notes</h3>
+                             <h3 class="mb-0 text-center text-muted">Users below can view your notes</h3>
                              <i class="fas fa-expand text-muted" id="headingOne" data-toggle="collapse" data-target="#collapseOne" 
                              aria-expanded="true" aria-controls="collapseOne"></i>
                         </div>
@@ -68,7 +68,7 @@
                                 <ul class="list-group">
                                 
                                     @forelse ($friendNotes as $friendNote)
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{-- <li class="list-group-item d-flex justify-content-between align-items-center">
         
                                             <div>
                                                 <a href="/notes/{{$friendNote->id}}" class="text-decoration-none text-secondary">
@@ -79,9 +79,16 @@
                                                 </a>
                                             </div>
         
+                                        </li> --}}
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <h3 class="my-1 notes-title">{{$friendNote->user->name}}</h3>
+                                            <div>
+                                                Member Since <span class="font-weight-bold text-muted">
+                                                    {{date("F, j, Y", strtotime($friendNote->user->created_at))}}</span>
+                                            </div>
                                         </li>
                                     @empty
-                                        <h3 class="text-muted">You don't have any friends with notes yet.</h3>
+                                        <h3>You don't have any friends with notes yet.</h3>
                                     @endforelse
                     
                                 </ul>
