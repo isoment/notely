@@ -60,12 +60,12 @@ class User extends Authenticatable
     }
 
     /**
-     *  Getting friends notes
+     *  Getting allowed user
      */
-    public function friendsNotes() {
+    public function allowed() {
         $friendIds = $this->friends()->pluck('id');
-        $friendNotes = Note::whereIn('user_id', $friendIds)->latest()->paginate(5, ['*'], 'friends');
-        return $friendNotes;
+        $allowed = User::whereIn('id', $friendIds)->latest()->paginate(5, ['*'], 'friends');
+        return $allowed;
     }
 
 }

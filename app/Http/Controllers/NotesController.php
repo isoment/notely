@@ -23,7 +23,7 @@ class NotesController extends Controller
     public function index() 
     {
         $currentUser = auth()->user()->id;
-        $friendNotes = auth()->user()->friendsNotes();
+        $allowed = auth()->user()->allowed();
 
         // Since there are two cards listing users notes and friends notes and we are using
         // pagination on both in the same view we need to change the query string for pagination
@@ -34,7 +34,7 @@ class NotesController extends Controller
 
         return view('notes', [
             'notes' => $notes,
-            'friendNotes' => $friendNotes
+            'allowed' => $allowed,
         ]);
     }
 
@@ -79,15 +79,9 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-
         $note = Note::findOrFail($id);
 
-        // Show note
         return view('shownote')->with('note', $note);
-
-        // Redirect to edit page
-        // return redirect('/notes/' . $note->id . '/edit');
-
     }
 
     /**

@@ -66,34 +66,20 @@
                         <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="card-body">
                                 <ul class="list-group">
-                                
-                                    @forelse ($friendNotes as $friendNote)
-                                        {{-- <li class="list-group-item d-flex justify-content-between align-items-center">
-        
-                                            <div>
-                                                <a href="/notes/{{$friendNote->id}}" class="text-decoration-none text-secondary">
-                                                    <h3 class="my-1 notes-title">{{Str::of($friendNote->title)->limit(35)}}</h3>
-                                                    <span class="font-weight-bold text-muted">Written by: {{$friendNote->user->name}}</span>
-                                                    <br><span class="font-weight-bold text-muted">
-                                                        {{date("F j, Y", strtotime($friendNote->created_at))}}</span>
-                                                </a>
-                                            </div>
-        
-                                        </li> --}}
+
+                                    @foreach ($allowed as $allow)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <h3 class="my-1 notes-title">{{$friendNote->user->name}}</h3>
+                                            <h3 class="my-1 notes-title">{{$allow->name}}</h3>
                                             <div>
                                                 Member Since <span class="font-weight-bold text-muted">
-                                                    {{date("F, j, Y", strtotime($friendNote->user->created_at))}}</span>
+                                                    {{date("F, j, Y", strtotime($allow->created_at))}}</span>
                                             </div>
                                         </li>
-                                    @empty
-                                        <h3>You don't have any friends with notes yet.</h3>
-                                    @endforelse
-                    
+                                    @endforeach
+
                                 </ul>
                                 <div id="bootstrap-override" class="mt-4 ml-3">
-                                    {{ $friendNotes->links() }}
+                                    {{ $allowed->links() }}
                                 </div>
                             </div>
                         </div>

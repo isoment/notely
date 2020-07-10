@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="bg-gradient-info edit-note">
-        @if ($note->user->friending(auth()->user()))
+        @if ($note->user->friending(auth()->user()) || $note->user == auth()->user())
             <div class="container">
 
                 <div class="row justify-content-center container-reposition">
@@ -12,6 +12,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="mb-0 text-center text-muted">{{$note->title}}</h3>
+                                <p class="text-muted text-center mb-0">Author: {{$note->user->name}}</p>
                             </div>
                             <div class="card-body">
                                 <form action="/">
