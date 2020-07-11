@@ -69,6 +69,10 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" href="/view">Users Notes</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="/users">Users</a>
                             </li>
 

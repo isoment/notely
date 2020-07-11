@@ -30,6 +30,7 @@ Route::resource('notes', 'NotesController');
 
 Route::get('users', 'NotelyUsersController@search');
 
+Route::get('/view', 'FriendsController@view');
 Route::post('/users/{user}/friend', 'FriendsController@store');
 
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');

@@ -62,7 +62,8 @@ class User extends Authenticatable
     /**
      *  Getting allowed user
      */
-    public function allowed() {
+    public function allowed() 
+    {
         $friendIds = $this->friends()->pluck('id');
         $allowed = User::whereIn('id', $friendIds)->latest()->paginate(5, ['*'], 'friends');
         return $allowed;

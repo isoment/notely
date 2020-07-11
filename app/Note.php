@@ -3,12 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Note extends Model
 
 {
-
     use Friendable;
+    use SearchableTrait;
+
+    /**
+     *  Note seach
+     */
+    protected $searchable = [
+        'columns' => [
+            'notes.title' => 10
+        ]
+    ];
 
     /**
      *  Attributes that are mass assignable
@@ -32,6 +42,4 @@ class Note extends Model
     {
         return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
-
-
 }
