@@ -40,6 +40,8 @@
                                 </form>
                             </div>
                         </div>
+
+                        @include('partials._comment')
                     @endcan
     
                     @cannot('update', $note)
@@ -50,8 +52,6 @@
     
                 </div>
             </div>
-
-            @include('partials._comment')
         </div>
     </div>
 
