@@ -13,7 +13,7 @@
     
                     {{-- Per Note Policy checking if user is the notes author --}}
                     @can('update', $note)
-                        <div class="card">
+                        <div class="card mb-5">
                             <div class="card-header">
                                 <h3 class="mb-0 text-center text-muted">{{$note->title}}</h3>
                             </div>

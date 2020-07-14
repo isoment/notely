@@ -106,21 +106,24 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $this->validate($request, [
-            'title' => 'required|max:50'
-        ]);
-
         $note = Note::findOrFail($id);
 
-        $note->title = $request->input('title');
-        $note->note = $request->input('note');
-        $note->user_id = auth()->user()->id; 
+        if ($note->user_id == auth()->user()->id) {
+            $this->validate($request, [
+                'title' => 'required|max:50'
+            ]);
+    
+            $note->title = $request->input('title');
+            $note->note = $request->input('note');
+            $note->user_id = auth()->user()->id; 
+    
+            $note->save();
+    
+            return redirect('/notes/' . $note->id . '/edit')->with('success', 'Note Saved!');
 
-        $note->save();
-
-        return redirect('/notes/' . $note->id . '/edit')->with('success', 'Note Saved!');
-
+        } else {
+            return redirect('/notes')->with('danger', 'You cannot do this!');
+        }
     }
 
     /**
